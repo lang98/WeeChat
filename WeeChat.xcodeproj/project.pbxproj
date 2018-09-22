@@ -7,21 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6078CB42112DF1500CA9EF8 /* FullscreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6078CB32112DF1500CA9EF8 /* FullscreenVC.swift */; };
+		C6078CB62115371000CA9EF8 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6078CB52115371000CA9EF8 /* Utility.swift */; };
+		C609694F2118073D00112A00 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C609694E2118073D00112A00 /* ChatTableViewCell.swift */; };
+		C6096951211813FE00112A00 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6096950211813FE00112A00 /* MessageInfo.swift */; };
+		C60969532118172A00112A00 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60969522118172A00112A00 /* Enums.swift */; };
+		C624A458211AAD9F009FF25B /* NavigationBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C624A457211AAD9F009FF25B /* NavigationBaseVC.swift */; };
+		C6295EF6212922DE0022CDC4 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6295EF5212922DE0022CDC4 /* ContactsVC.swift */; };
+		C6379FE52140DD970056CA5B /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6379FE42140DD970056CA5B /* MenuItem.swift */; };
+		C63BCEA8211ABCE2003FD9BC /* ChatHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63BCEA7211ABCE2003FD9BC /* ChatHistoryVC.swift */; };
+		C65A9AD1210FE87700F49A70 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9AD0210FE87700F49A70 /* SplashVC.swift */; };
+		C65A9AD521102B3100F49A70 /* UserDataSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9AD421102B3100F49A70 /* UserDataSM.swift */; };
+		C65A9AD821102C2500F49A70 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9AD721102C2500F49A70 /* UserInfo.swift */; };
+		C65A9ADB21102F8200F49A70 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9ADA21102F8200F49A70 /* Extensions.swift */; };
+		C65A9ADE2110413C00F49A70 /* ChatOverviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9ADD2110413C00F49A70 /* ChatOverviewVC.swift */; };
+		C65A9AE12111605700F49A70 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9AE02111605700F49A70 /* BaseVC.swift */; };
+		C65A9AE32111673A00F49A70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A9AE22111673A00F49A70 /* Constants.swift */; };
 		C661FD2320EC932C008BF817 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C661FD2220EC932C008BF817 /* AppDelegate.swift */; };
-		C661FD2520EC932C008BF817 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C661FD2420EC932C008BF817 /* ViewController.swift */; };
-		C661FD2820EC932C008BF817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C661FD2620EC932C008BF817 /* Main.storyboard */; };
-		C661FD2A20EC9332008BF817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C661FD2920EC9332008BF817 /* Assets.xcassets */; };
+		C661FD2520EC932C008BF817 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C661FD2420EC932C008BF817 /* LoginVC.swift */; };
 		C661FD2D20EC9332008BF817 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C661FD2B20EC9332008BF817 /* LaunchScreen.storyboard */; };
+		C698FCDE20FF225800999EEA /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C698FCDD20FF225800999EEA /* SignupVC.swift */; };
+		C6C062CE212961E300B1647B /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062CD212961E300B1647B /* ChatBubbleView.swift */; };
+		C6C062D0212964A700B1647B /* ChatBubbleRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062CF212964A700B1647B /* ChatBubbleRowCell.swift */; };
+		C6C062D3212A1C2100B1647B /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062D2212A1C2100B1647B /* DiscoverVC.swift */; };
+		C6C062D5212A1C3000B1647B /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062D4212A1C3000B1647B /* MeVC.swift */; };
+		C6D58DE2211D13B5009795D7 /* HomeTabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D58DE1211D13B5009795D7 /* HomeTabsVC.swift */; };
+		C6DAEE4A211E72FF0055F937 /* TabBarBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DAEE49211E72FF0055F937 /* TabBarBaseVC.swift */; };
+		C6DAEE5421264E290055F937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DAEE5321264E290055F937 /* Assets.xcassets */; };
+		C6F48DC320F83E8E0048F8D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6F48DC220F83E8E0048F8D0 /* GoogleService-Info.plist */; };
+		C6FEECF12133530C00BCD09D /* MenuRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FEECF02133530C00BCD09D /* MenuRowCell.swift */; };
+		FCE0DEFA9F32B2B1820FC70A /* Pods_WeeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA006AD41AE344C78B7B9C3 /* Pods_WeeChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00767EB30E1F81DAAEBDE9E9 /* Pods-WeeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeeChat/Pods-WeeChat.release.xcconfig"; sourceTree = "<group>"; };
+		3DA006AD41AE344C78B7B9C3 /* Pods_WeeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61FDDAAC09E2D111784B89DB /* Pods-WeeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeeChat/Pods-WeeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		C6078CB32112DF1500CA9EF8 /* FullscreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenVC.swift; sourceTree = "<group>"; };
+		C6078CB52115371000CA9EF8 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		C609694E2118073D00112A00 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		C6096950211813FE00112A00 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
+		C60969522118172A00112A00 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		C624A457211AAD9F009FF25B /* NavigationBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBaseVC.swift; sourceTree = "<group>"; };
+		C6295EF5212922DE0022CDC4 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		C6379FE42140DD970056CA5B /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		C63BCEA7211ABCE2003FD9BC /* ChatHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryVC.swift; sourceTree = "<group>"; };
+		C65A9AD0210FE87700F49A70 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		C65A9AD421102B3100F49A70 /* UserDataSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSM.swift; sourceTree = "<group>"; };
+		C65A9AD721102C2500F49A70 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		C65A9ADA21102F8200F49A70 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C65A9ADD2110413C00F49A70 /* ChatOverviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOverviewVC.swift; sourceTree = "<group>"; };
+		C65A9AE02111605700F49A70 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		C65A9AE22111673A00F49A70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C661FD1F20EC932C008BF817 /* WeeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C661FD2220EC932C008BF817 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C661FD2420EC932C008BF817 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C661FD2720EC932C008BF817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C661FD2920EC9332008BF817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C661FD2420EC932C008BF817 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C661FD2C20EC9332008BF817 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C661FD2E20EC9332008BF817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C698FCDD20FF225800999EEA /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		C6C062CD212961E300B1647B /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		C6C062CF212964A700B1647B /* ChatBubbleRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleRowCell.swift; sourceTree = "<group>"; };
+		C6C062D2212A1C2100B1647B /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
+		C6C062D4212A1C3000B1647B /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		C6D58DE1211D13B5009795D7 /* HomeTabsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabsVC.swift; sourceTree = "<group>"; };
+		C6DAEE49211E72FF0055F937 /* TabBarBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseVC.swift; sourceTree = "<group>"; };
+		C6DAEE5321264E290055F937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WeeChat/Assets.xcassets; sourceTree = "<group>"; };
+		C6F48DC220F83E8E0048F8D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C6FEECF02133530C00BCD09D /* MenuRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +81,127 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE0DEFA9F32B2B1820FC70A /* Pods_WeeChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45F825C54188C57D44C6C2B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61FDDAAC09E2D111784B89DB /* Pods-WeeChat.debug.xcconfig */,
+				00767EB30E1F81DAAEBDE9E9 /* Pods-WeeChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7FF5840785B63240B09F8C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DA006AD41AE344C78B7B9C3 /* Pods_WeeChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C609694D2118072700112A00 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				C609694E2118073D00112A00 /* ChatTableViewCell.swift */,
+				C6C062CD212961E300B1647B /* ChatBubbleView.swift */,
+				C6C062CF212964A700B1647B /* ChatBubbleRowCell.swift */,
+				C6FEECF02133530C00BCD09D /* MenuRowCell.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		C65A9ACE210FE84000F49A70 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9ADF2111604A00F49A70 /* Base */,
+				C65A9ADC2110412C00F49A70 /* Main */,
+				C65A9ACF210FE85100F49A70 /* General */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C65A9ACF210FE85100F49A70 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C661FD2420EC932C008BF817 /* LoginVC.swift */,
+				C698FCDD20FF225800999EEA /* SignupVC.swift */,
+				C65A9AD0210FE87700F49A70 /* SplashVC.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		C65A9AD221102B0C00F49A70 /* ServiceManagers */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9AD321102B1700F49A70 /* Data */,
+			);
+			path = ServiceManagers;
+			sourceTree = "<group>";
+		};
+		C65A9AD321102B1700F49A70 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9AD421102B3100F49A70 /* UserDataSM.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C65A9AD621102C0F00F49A70 /* Infos */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9AD721102C2500F49A70 /* UserInfo.swift */,
+				C6096950211813FE00112A00 /* MessageInfo.swift */,
+			);
+			path = Infos;
+			sourceTree = "<group>";
+		};
+		C65A9AD921102F6C00F49A70 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9ADA21102F8200F49A70 /* Extensions.swift */,
+				C65A9AE22111673A00F49A70 /* Constants.swift */,
+				C6078CB52115371000CA9EF8 /* Utility.swift */,
+				C60969522118172A00112A00 /* Enums.swift */,
+				C6379FE42140DD970056CA5B /* MenuItem.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C65A9ADC2110412C00F49A70 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C6C062D1212A1C0100B1647B /* Tab */,
+				C63BCEA7211ABCE2003FD9BC /* ChatHistoryVC.swift */,
+				C6D58DE1211D13B5009795D7 /* HomeTabsVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C65A9ADF2111604A00F49A70 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9AE02111605700F49A70 /* BaseVC.swift */,
+				C6078CB32112DF1500CA9EF8 /* FullscreenVC.swift */,
+				C624A457211AAD9F009FF25B /* NavigationBaseVC.swift */,
+				C6DAEE49211E72FF0055F937 /* TabBarBaseVC.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		C661FD1620EC932C008BF817 = {
 			isa = PBXGroup;
 			children = (
+				C6DAEE5321264E290055F937 /* Assets.xcassets */,
 				C661FD2120EC932C008BF817 /* WeeChat */,
 				C661FD2020EC932C008BF817 /* Products */,
+				45F825C54188C57D44C6C2B2 /* Pods */,
+				A7FF5840785B63240B09F8C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +216,28 @@
 		C661FD2120EC932C008BF817 /* WeeChat */ = {
 			isa = PBXGroup;
 			children = (
+				C609694D2118072700112A00 /* Controls */,
+				C65A9AD921102F6C00F49A70 /* Common */,
+				C65A9AD621102C0F00F49A70 /* Infos */,
+				C65A9AD221102B0C00F49A70 /* ServiceManagers */,
+				C65A9ACE210FE84000F49A70 /* ViewControllers */,
 				C661FD2220EC932C008BF817 /* AppDelegate.swift */,
-				C661FD2420EC932C008BF817 /* ViewController.swift */,
-				C661FD2620EC932C008BF817 /* Main.storyboard */,
-				C661FD2920EC9332008BF817 /* Assets.xcassets */,
 				C661FD2B20EC9332008BF817 /* LaunchScreen.storyboard */,
 				C661FD2E20EC9332008BF817 /* Info.plist */,
+				C6F48DC220F83E8E0048F8D0 /* GoogleService-Info.plist */,
 			);
 			path = WeeChat;
+			sourceTree = "<group>";
+		};
+		C6C062D1212A1C0100B1647B /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C65A9ADD2110413C00F49A70 /* ChatOverviewVC.swift */,
+				C6295EF5212922DE0022CDC4 /* ContactsVC.swift */,
+				C6C062D2212A1C2100B1647B /* DiscoverVC.swift */,
+				C6C062D4212A1C3000B1647B /* MeVC.swift */,
+			);
+			path = Tab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C661FD3120EC9332008BF817 /* Build configuration list for PBXNativeTarget "WeeChat" */;
 			buildPhases = (
+				1C5EDB56385BF1FACE06E663 /* [CP] Check Pods Manifest.lock */,
 				C661FD1B20EC932C008BF817 /* Sources */,
 				C661FD1C20EC932C008BF817 /* Frameworks */,
 				C661FD1D20EC932C008BF817 /* Resources */,
+				38283276924691DC27FFEA63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,34 +301,93 @@
 			buildActionMask = 2147483647;
 			files = (
 				C661FD2D20EC9332008BF817 /* LaunchScreen.storyboard in Resources */,
-				C661FD2A20EC9332008BF817 /* Assets.xcassets in Resources */,
-				C661FD2820EC932C008BF817 /* Main.storyboard in Resources */,
+				C6DAEE5421264E290055F937 /* Assets.xcassets in Resources */,
+				C6F48DC320F83E8E0048F8D0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C5EDB56385BF1FACE06E663 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WeeChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38283276924691DC27FFEA63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WeeChat/Pods-WeeChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeeChat/Pods-WeeChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C661FD1B20EC932C008BF817 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C661FD2520EC932C008BF817 /* ViewController.swift in Sources */,
+				C6C062CE212961E300B1647B /* ChatBubbleView.swift in Sources */,
+				C698FCDE20FF225800999EEA /* SignupVC.swift in Sources */,
+				C65A9AD521102B3100F49A70 /* UserDataSM.swift in Sources */,
+				C65A9AD1210FE87700F49A70 /* SplashVC.swift in Sources */,
+				C6D58DE2211D13B5009795D7 /* HomeTabsVC.swift in Sources */,
+				C6096951211813FE00112A00 /* MessageInfo.swift in Sources */,
+				C661FD2520EC932C008BF817 /* LoginVC.swift in Sources */,
+				C624A458211AAD9F009FF25B /* NavigationBaseVC.swift in Sources */,
+				C65A9AE12111605700F49A70 /* BaseVC.swift in Sources */,
+				C6C062D3212A1C2100B1647B /* DiscoverVC.swift in Sources */,
+				C65A9AE32111673A00F49A70 /* Constants.swift in Sources */,
+				C6DAEE4A211E72FF0055F937 /* TabBarBaseVC.swift in Sources */,
+				C60969532118172A00112A00 /* Enums.swift in Sources */,
+				C65A9ADE2110413C00F49A70 /* ChatOverviewVC.swift in Sources */,
+				C6FEECF12133530C00BCD09D /* MenuRowCell.swift in Sources */,
+				C65A9AD821102C2500F49A70 /* UserInfo.swift in Sources */,
+				C63BCEA8211ABCE2003FD9BC /* ChatHistoryVC.swift in Sources */,
+				C6C062D5212A1C3000B1647B /* MeVC.swift in Sources */,
+				C6078CB62115371000CA9EF8 /* Utility.swift in Sources */,
+				C6379FE52140DD970056CA5B /* MenuItem.swift in Sources */,
 				C661FD2320EC932C008BF817 /* AppDelegate.swift in Sources */,
+				C6078CB42112DF1500CA9EF8 /* FullscreenVC.swift in Sources */,
+				C609694F2118073D00112A00 /* ChatTableViewCell.swift in Sources */,
+				C65A9ADB21102F8200F49A70 /* Extensions.swift in Sources */,
+				C6C062D0212964A700B1647B /* ChatBubbleRowCell.swift in Sources */,
+				C6295EF6212922DE0022CDC4 /* ContactsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C661FD2620EC932C008BF817 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C661FD2720EC932C008BF817 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C661FD2B20EC9332008BF817 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -278,9 +515,11 @@
 		};
 		C661FD3220EC9332008BF817 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61FDDAAC09E2D111784B89DB /* Pods-WeeChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56Q9CB762W;
 				INFOPLIST_FILE = WeeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -295,9 +534,11 @@
 		};
 		C661FD3320EC9332008BF817 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00767EB30E1F81DAAEBDE9E9 /* Pods-WeeChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56Q9CB762W;
 				INFOPLIST_FILE = WeeChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
