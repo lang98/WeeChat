@@ -8,34 +8,53 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class ChatOverviewVC: NavigationBaseVC {
     
     var tableView: UITableView!
     
-    var dataSource = [MessageInfo]()
+    var dataSource = [ChatInfo]()
+    var ref = Firestore.firestore().collection("chats")
+    var listener: ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = [MessageInfo("lol", "2017", "asdfasdf", "test person"),
-                    MessageInfo("lol2", "2017", "vayne is good", "ryanniubi"),
-                    MessageInfo("lol3", "2017", "ryan is good", "CGUE"),
-                    MessageInfo("lol4", "2017", "asdfasdf", "test person"),
-                    MessageInfo("lol", "2017", "asdfasdf", "test person"),
-                    MessageInfo("lol2", "2017", "vayne is good", "ryanniubi"),
-                    MessageInfo("lol3", "2017", "ryan is good", "CGUE"),
-                    MessageInfo("lol", "2017", "asdfasdf", "test person"),
-                    MessageInfo("lol2", "2017", "vayne is good", "ryanniubi"),
-                    MessageInfo("lol3", "2017", "ryan is good", "CGUE")]
-        
         renderContent()
+        fetchAllChats()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         UIApplication.shared.statusBarStyle = .lightContent
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.listener.remove()
+    }
+    
+    func fetchAllChats() {
+        self.listener = ref.addSnapshotListener { (documents, error) in
+            guard let snapshot = documents else {
+                return
+            }
+            self.dataSource = snapshot.documents.map { (document) -> ChatInfo in
+                print(document.data())
+                if let chat = ChatInfo(dictionary: document.data(), id: document.documentID) {
+                    return chat
+                } else {
+                    fatalError("Chat overview cant get data from firebase")
+                }
+            }
+            self.tableView.reloadData()
+        }
+        
+        
     }
     
     private func renderContent() {
@@ -70,10 +89,10 @@ extension ChatOverviewVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
-        if let title = dataSource[indexPath.row].senderName {
+        if let title = dataSource[indexPath.row].chatId {
             cell.titleLabel.text = title
         }
-        if let subtitle = dataSource[indexPath.row].content {
+        if let subtitle = dataSource[indexPath.row].chatId {
             cell.subTitleLabel.text = subtitle
         }
         return cell

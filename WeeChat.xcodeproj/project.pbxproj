@@ -31,6 +31,9 @@
 		C6C062D0212964A700B1647B /* ChatBubbleRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062CF212964A700B1647B /* ChatBubbleRowCell.swift */; };
 		C6C062D3212A1C2100B1647B /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062D2212A1C2100B1647B /* DiscoverVC.swift */; };
 		C6C062D5212A1C3000B1647B /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C062D4212A1C3000B1647B /* MeVC.swift */; };
+		C6CB7EFF215A079200EB5F72 /* ChatSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB7EFE215A079200EB5F72 /* ChatSM.swift */; };
+		C6CB7F01215D315800EB5F72 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB7F00215D315800EB5F72 /* ChatInfo.swift */; };
+		C6CB7F03216D292700EB5F72 /* ChatInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB7F02216D292700EB5F72 /* ChatInputBox.swift */; };
 		C6D58DE2211D13B5009795D7 /* HomeTabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D58DE1211D13B5009795D7 /* HomeTabsVC.swift */; };
 		C6DAEE4A211E72FF0055F937 /* TabBarBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DAEE49211E72FF0055F937 /* TabBarBaseVC.swift */; };
 		C6DAEE5421264E290055F937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DAEE5321264E290055F937 /* Assets.xcassets */; };
@@ -69,6 +72,9 @@
 		C6C062CF212964A700B1647B /* ChatBubbleRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleRowCell.swift; sourceTree = "<group>"; };
 		C6C062D2212A1C2100B1647B /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
 		C6C062D4212A1C3000B1647B /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		C6CB7EFE215A079200EB5F72 /* ChatSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSM.swift; sourceTree = "<group>"; };
+		C6CB7F00215D315800EB5F72 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
+		C6CB7F02216D292700EB5F72 /* ChatInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputBox.swift; sourceTree = "<group>"; };
 		C6D58DE1211D13B5009795D7 /* HomeTabsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabsVC.swift; sourceTree = "<group>"; };
 		C6DAEE49211E72FF0055F937 /* TabBarBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBaseVC.swift; sourceTree = "<group>"; };
 		C6DAEE5321264E290055F937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = WeeChat/Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 				C6C062CD212961E300B1647B /* ChatBubbleView.swift */,
 				C6C062CF212964A700B1647B /* ChatBubbleRowCell.swift */,
 				C6FEECF02133530C00BCD09D /* MenuRowCell.swift */,
+				C6CB7F02216D292700EB5F72 /* ChatInputBox.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				C65A9AD421102B3100F49A70 /* UserDataSM.swift */,
+				C6CB7EFE215A079200EB5F72 /* ChatSM.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 			children = (
 				C65A9AD721102C2500F49A70 /* UserInfo.swift */,
 				C6096950211813FE00112A00 /* MessageInfo.swift */,
+				C6CB7F00215D315800EB5F72 /* ChatInfo.swift */,
 			);
 			path = Infos;
 			sourceTree = "<group>";
@@ -334,14 +343,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeeChat/Pods-WeeChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,11 +390,14 @@
 				C65A9AE12111605700F49A70 /* BaseVC.swift in Sources */,
 				C6C062D3212A1C2100B1647B /* DiscoverVC.swift in Sources */,
 				C65A9AE32111673A00F49A70 /* Constants.swift in Sources */,
+				C6CB7F03216D292700EB5F72 /* ChatInputBox.swift in Sources */,
 				C6DAEE4A211E72FF0055F937 /* TabBarBaseVC.swift in Sources */,
 				C60969532118172A00112A00 /* Enums.swift in Sources */,
 				C65A9ADE2110413C00F49A70 /* ChatOverviewVC.swift in Sources */,
 				C6FEECF12133530C00BCD09D /* MenuRowCell.swift in Sources */,
 				C65A9AD821102C2500F49A70 /* UserInfo.swift in Sources */,
+				C6CB7EFF215A079200EB5F72 /* ChatSM.swift in Sources */,
+				C6CB7F01215D315800EB5F72 /* ChatInfo.swift in Sources */,
 				C63BCEA8211ABCE2003FD9BC /* ChatHistoryVC.swift in Sources */,
 				C6C062D5212A1C3000B1647B /* MeVC.swift in Sources */,
 				C6078CB62115371000CA9EF8 /* Utility.swift in Sources */,

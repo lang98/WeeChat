@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         
         // Main controller
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -22,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setTheme()
         window?.makeKeyAndVisible()
         
-        FirebaseApp.configure()
         return true
     }
     

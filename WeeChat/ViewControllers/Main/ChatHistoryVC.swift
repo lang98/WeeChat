@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 protocol ChatHistoryVCDelegate: class {
     func chatHistoryVC(userId: String)
@@ -18,24 +19,24 @@ class ChatHistoryVC: NavigationBaseVC {
     weak var delegate: ChatHistoryVCDelegate?
     
     var tableView: UITableView!
+    var inputBox: ChatInputBox!
     var dataSource = [MessageInfo]()
+    var ref = Firestore.firestore().collection("chats")
+    
+    var bottomConstraint: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = [MessageInfo("lol", "2017", "asdfasdf", "test person"),
-                      MessageInfo("lol2", "2017", "vayne is good", "ryanniubi"),
-                      MessageInfo("lol3", "2017", "ryan is good", "CGUE"),
-                      MessageInfo("lol4", "2017", "asdfasdf", "test person"),
-                      MessageInfo("lol", "2017", "asdfasdf", "test person"),
-                      MessageInfo("lol2", "2017", "vayne is good", "ryanniubi"),
-                      MessageInfo("lol3", "2017", "ryan is good", "CGUE"),
-                      MessageInfo("lol", "2017", "asdfasdf", "test person"),
-                      MessageInfo("lol2", "2017", "vayne is good", "ryanniubi"),
-                      MessageInfo("lol3", "2017", "ryan is good", "CGUE")]
-        
         self.title = NSLocalizedString("WeeChat History", comment: "")
         
+        renderContent()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func renderContent() {
         tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
@@ -46,6 +47,10 @@ class ChatHistoryVC: NavigationBaseVC {
         tableView.tableFooterView = UIView()
         self.view.addSubview(tableView)
         
+        inputBox = ChatInputBox()
+        inputBox.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(inputBox)
+        
         self.view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "|[table]|",
             options: [],
@@ -53,16 +58,43 @@ class ChatHistoryVC: NavigationBaseVC {
             views: ["table": tableView]))
         
         self.view.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "|[input]|",
+            options: [],
+            metrics: nil,
+            views: ["input": inputBox]))
+        
+        self.view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "V:|[table]|",
             options: [],
             metrics: nil,
             views: ["table": tableView]))
+        
+        // pin input box at the bottom
+        bottomConstraint = NSLayoutConstraint(item: inputBox, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        self.view.addConstraint(bottomConstraint!)
     }
+    
+    @objc func handleKeyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            
+            let isKeyboardShowing = notification.name == NSNotification.Name.UIKeyboardWillShow
+            bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame!.height : 0
+            
+            UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.view.layoutIfNeeded()
+            }, completion: {(completed) in
+                
+            })
+        }
+    }
+    
 }
 
 extension ChatHistoryVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        inputBox.endEditing(true)
     }
 }
 
