@@ -11,27 +11,31 @@ import Foundation
 class ChatInfo: Codable {
     
     var title: String?
-    var senderId: String?
     var preview: String?
     var chatId: String?
     
-    init(title: String, senderId: String, preview: String, chatId: String) {
+    init(title: String, preview: String, chatId: String) {
         self.title = title
-        self.senderId = senderId
         self.preview = preview
         self.chatId = chatId
     }
     
-    init?(dictionary: [String: Any], id: String) {
-        guard let chatId = dictionary["id"] as? String else {
-            return
+    convenience init?(dictionary: [String: Any]) {
+        guard let title = dictionary["title"] as? String else {
+            return nil
         }
-        self.chatId = chatId
+        guard let preview = dictionary["preview"] as? String else {
+            return nil
+        }
+        guard let chatId = dictionary["chatId"] as? String else {
+            return nil
+        }
+        self.init(title: title, preview: preview, chatId: chatId)
     }
     
     private enum CodingKeys: String, CodingKey {
         case title
-        case senderId
         case preview
+        case chatId
     }
 }

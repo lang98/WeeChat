@@ -36,7 +36,7 @@ class ChatTableViewCell: UITableViewCell {
         
         subTitleLabel = UILabel()
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subTitleLabel.textColor = UIColor.black
+        subTitleLabel.textColor = UIColor.gray
         subTitleLabel.font = UIFont.subTitle
         containerView.addSubview(subTitleLabel)
         

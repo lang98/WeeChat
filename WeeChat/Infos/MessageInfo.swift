@@ -11,20 +11,30 @@ import Foundation
 class MessageInfo: Codable {
     
     var content: String?
-    var sendTime: String?
     var senderId: String?
     var senderName: String?
     
-    init(_ content: String, _ sendTime: String, _ senderId: String, _ senderName: String) {
+    init(content: String, senderId: String, senderName: String) {
         self.content = content
-        self.sendTime = sendTime
         self.senderId = senderId
         self.senderName = senderName
     }
     
+    convenience init?(dictionary: [String: Any]) {
+        guard let content = dictionary["content"] as? String else {
+            return nil
+        }
+        guard let senderId = dictionary["senderId"] as? String else {
+            return nil
+        }
+        guard let senderName = dictionary["senderName"] as? String else {
+            return nil
+        }
+        self.init(content: content, senderId: senderId, senderName: senderName)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case content
-        case sendTime
         case senderId
         case senderName
     }

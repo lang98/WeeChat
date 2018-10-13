@@ -190,10 +190,18 @@ class LoginVC: FullscreenVC {
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             } else {
-                UDSM.user = UserInfo(email: email, name: "User")
+                UDSM.user = UserInfo(email: email, name: "user", id: "0000")
                 AppDelegate.delegate.showMainScreen()
             }
         }
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                UDSM.user?.name = user?.displayName
+                UDSM.user?.id = user?.uid
+            }
+        }
+        
     }
     
     @objc func editingChanged() {

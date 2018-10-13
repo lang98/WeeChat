@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 protocol ChatHistoryVCDelegate: class {
     func chatHistoryVC(userId: String)
@@ -16,24 +17,39 @@ protocol ChatHistoryVCDelegate: class {
 
 class ChatHistoryVC: NavigationBaseVC {
     
+    // Data
+    var chatInfo: ChatInfo?
+    
     weak var delegate: ChatHistoryVCDelegate?
     
+    // UI
     var tableView: UITableView!
     var inputBox: ChatInputBox!
+    var inputBoxBottom: UIView! // fix for iphone x display
     var dataSource = [MessageInfo]()
-    var ref = Firestore.firestore().collection("chats")
+    
+    // DB
+    var ref = Firestore.firestore().collection("messages")
+    var listener: ListenerRegistration!
     
     var bottomConstraint: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = NSLocalizedString("WeeChat History", comment: "")
+        self.title = NSLocalizedString(chatInfo?.title ?? "WeeChat History", comment: "")
         
         renderContent()
         
+        fetchMessages()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.listener.remove()
     }
     
     func renderContent() {
@@ -49,7 +65,12 @@ class ChatHistoryVC: NavigationBaseVC {
         
         inputBox = ChatInputBox()
         inputBox.translatesAutoresizingMaskIntoConstraints = false
+        inputBox.textInput.delegate = self
         self.view.addSubview(inputBox)
+        
+        inputBoxBottom = UIView()
+        inputBoxBottom.backgroundColor = UIColor.secondaryGrey
+        self.view.addSubview(inputBoxBottom)
         
         self.view.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "|[table]|",
@@ -81,14 +102,58 @@ class ChatHistoryVC: NavigationBaseVC {
             let isKeyboardShowing = notification.name == NSNotification.Name.UIKeyboardWillShow
             bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame!.height : 0
             
+            // Animate with keyboard
             UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
             }, completion: {(completed) in
-                
+                // move to the last message
+//                let count = self.dataSource.count == 0 ? 1 : self.dataSource.count
+//                let indexPath = IndexPath(item: count - 1, section: 0)
+//                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             })
         }
     }
     
+    func fetchMessages() {
+        if let chatId = chatInfo?.chatId {
+            ref = Firestore.firestore().collection("messages").document(chatId).collection("messages")
+            self.listener = ref.addSnapshotListener { (documents, error) in
+                guard let snapshot = documents else {
+                    return
+                }
+                self.dataSource = snapshot.documents.map { (document) -> MessageInfo in
+                    if let message = MessageInfo(dictionary: document.data()) {
+                        return message
+                    } else {
+                        return MessageInfo(content: "Test", senderId: "Test", senderName: "Test")
+                    }
+                }
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
+    func addMessage() {
+        let data = MessageInfo(
+            content: inputBox.getMessage(),
+            senderId: UDSM.user?.id ?? "",
+            senderName: UDSM.user?.name ?? "")
+        
+        ref.addDocument(data: data.dictionary)
+        
+        inputBox.clearMessage()
+        tableView.reloadData()
+    }
+    
+}
+
+extension ChatHistoryVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addMessage()
+        return true
+    }
 }
 
 extension ChatHistoryVC: UITableViewDelegate {
@@ -107,7 +172,7 @@ extension ChatHistoryVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Bubble", for: indexPath) as! ChatBubbleRowCell
         cell.message = dataSource[indexPath.row].content
-        cell.isIncoming = dataSource[indexPath.row].senderId != "asdfasdf"
+        cell.isIncoming = dataSource[indexPath.row].senderId != UDSM.user?.id ?? ""
         cell.showMessage()
         return cell
     }

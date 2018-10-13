@@ -44,11 +44,11 @@ class ChatOverviewVC: NavigationBaseVC {
                 return
             }
             self.dataSource = snapshot.documents.map { (document) -> ChatInfo in
-                print(document.data())
-                if let chat = ChatInfo(dictionary: document.data(), id: document.documentID) {
+                print(document.documentID)
+                if let chat = ChatInfo(dictionary: document.data()) {
                     return chat
                 } else {
-                    fatalError("Chat overview cant get data from firebase")
+                    return ChatInfo(title: "Test", preview: "Test", chatId: "Test")
                 }
             }
             self.tableView.reloadData()
@@ -89,10 +89,10 @@ extension ChatOverviewVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
-        if let title = dataSource[indexPath.row].chatId {
+        if let title = dataSource[indexPath.row].title {
             cell.titleLabel.text = title
         }
-        if let subtitle = dataSource[indexPath.row].chatId {
+        if let subtitle = dataSource[indexPath.row].preview {
             cell.subTitleLabel.text = subtitle
         }
         return cell
@@ -105,6 +105,7 @@ extension ChatOverviewVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let vc = ChatHistoryVC()
+        vc.chatInfo = dataSource[indexPath.row]
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }

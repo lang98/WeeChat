@@ -26,6 +26,7 @@ class ChatInputBox: UIView {
         textInput = UITextField()
         textInput.translatesAutoresizingMaskIntoConstraints = false
         textInput.borderStyle = .roundedRect
+        textInput.returnKeyType = .send
         self.addSubview(textInput)
         
         iconView = UIImageView()
@@ -52,5 +53,13 @@ class ChatInputBox: UIView {
             options: [],
             metrics: nil,
             views: ["icon": iconView]))
+    }
+    
+    func getMessage() -> String {
+        return textInput.text ?? ""
+    }
+    
+    func clearMessage() {
+        textInput.text = ""
     }
 }
